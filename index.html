@@ -187,4 +187,135 @@ how:`<span class="tag">如何借書</span>
 </ul>`,
 find:`<span class="tag">找書方法</span>
 <ul class="answer-list">
-<li>
+<li>前往線上系統查詢想找的書籍：<br><a href="https://read.moe.edu.tw/034624/library" target="_blank" class="link-btn">📖 大園國小圖書館線上查書系統</a></li>
+<li>先想好書名、作者、主題或關鍵字。</li>
+<li>依照書架分類與標示尋找需要的書。</li>
+<li>同一主題的書通常會放在相近區域。</li>
+<li>找不到書時，可到櫃台詢問圖書館老師或服務人員。</li>
+<li>取書後可先翻閱目錄與內容，確認是否符合閱讀需求。</li>
+</ul>`,
+activity:`<span class="tag">圖書館活動</span>
+<ul class="answer-list">
+<li>點擊下方連結前往活動專頁查看最新公告：<br><a href="https://sites.google.com/dyps.tyc.edu.tw/dayuanlibrary/%E6%B4%BB%E5%8B%95" target="_blank" class="link-btn">🎉 圖書館最新活動訊息</a></li>
+<li>圖書館可能舉辦閱讀推廣、主題書展、好書推薦、閱讀任務等活動。</li>
+<li>活動時間與參加方式以學校圖書館公告為準。</li>
+<li>可留意圖書館公布欄、班級通知或學校相關公告。</li>
+</ul>`,
+teacher:`<span class="tag">教師專區</span><br><br>
+<strong>1. 各班圖書館閱讀教育時間表：</strong><br>
+<a href="https://docs.google.com/spreadsheets/d/1tqGqzRehILPpMksnuYq9Wq3-TPzZYAmMKm5GJ8mckbQ/edit?gid=0#gid=0" target="_blank" class="link-btn">📅 各班閱讀教育時間表</a>
+<span class="notice-text">⚠️ 提示：請登入學校 GOOGLE 帳號查看</span><br>
+<strong>2. 班級共讀書箱換書時間：</strong><br>
+<a href="https://docs.google.com/spreadsheets/d/1BtiLU2DkT8xaKx4OFqXd4DpupWlyV7-o/edit?usp=drive_link&ouid=115333724899167584851&rtpof=true&sd=true" target="_blank" class="link-btn">📦 115上 班級共讀書箱換書時間</a>
+<a href="https://docs.google.com/spreadsheets/d/1JFAiZ9WkOg8WIuF9Tw6y_YgYzT958K-G/edit?usp=drive_link&ouid=115333724899167584851&rtpof=true&sd=true" target="_blank" class="link-btn">📦 115下 班級共讀書箱換書時間</a>`,
+links:`<span class="tag">相關網頁連結</span><br><br>
+<a href="https://read.moe.edu.tw/034624/library" target="_blank" class="link-btn">📖 大園國小圖書館查書</a>
+<a href="https://read.tc.edu.tw/index_2020.php" target="_blank" class="link-btn">✅ 臺中市閱讀認證系統</a>
+<a href="https://sites.google.com/dyps.tyc.edu.tw/dayuanlibrary/%E6%98%8E%E6%97%A5%E5%AE%B6%E5%BA%AD%E9%96%B1%E8%AE%80" target="_blank" class="link-btn">👨‍👩‍👧‍👦 明日家庭閱讀</a>
+<a href="https://sites.google.com/dyps.tyc.edu.tw/dayuanlibrary/%E9%96%B1%E8%AE%80%E7%8D%8E%E5%8B%B5%E8%BE%A6%E6%B3%95" target="_blank" class="link-btn">🏆 閱讀獎勵辦法</a>
+<a href="https://sites.google.com/dyps.tyc.edu.tw/dayuanlibrary/%E9%A6%96%E9%A0%81" target="_blank" class="link-btn">🌟 大園國小悅讀樂園</a>`,
+thanks:`不客氣！書寶祝福閱讀時光充滿驚喜。`,
+greeting:`哈囉！書寶可以協助查詢借閱規則、開放時間、如何借書、找書方法、圖書館活動和教師專區。`,
+overdue:`<span class="tag">逾期提醒</span>
+書籍超過期限未歸還，將暫停借書權利。完成歸還後，再依圖書館規定恢復借閱。`
+};
+const keywordRules=[
+{keys:["借閱規則","借書規則","借幾本","幾本","借期","多久","期限","14天","兩週","2週","規則"],answer:answers.borrow},
+{keys:["開放時間","時間","幾點","上午","中午","下午","星期一","星期二","星期三","星期四","星期五","週一","週二","週三","週四","週五","今天","停止","暫停"],answer:answers.time},
+{keys:["如何借書","怎麼借","借書方法","借書流程","辦理借書","櫃台","借還書"],answer:answers.how},
+{keys:["找書方法","怎麼找書","找不到","在哪裡","書架","分類","書名","作者","主題","關鍵字","查書"],answer:answers.find},
+{keys:["活動","書展","閱讀活動","公告","好書推薦","閱讀任務","主題書展"],answer:answers.activity},
+{keys:["教師專區","教師","老師","時間表","換書","共讀書箱","書箱","班級共讀","115上","115下","閱讀教育時間表"],answer:answers.teacher},
+{keys:["相關網頁","網頁","連結","查書","認證","明日家庭","獎勵","悅讀樂園","網站"],answer:answers.links},
+{keys:["逾期","過期","忘記還","沒還","暫停"],answer:answers.overdue},
+{keys:["你好","哈囉","嗨","早安","午安","晚安"],answer:answers.greeting},
+{keys:["謝謝","感謝","多謝"],answer:answers.thanks}
+];
+const fallback=`書寶目前可回答大園國小圖書館的借閱規則、開放時間、如何借書、找書方法、圖書館活動與教師專區。可輸入相關關鍵字，或點選上方快速問答按鈕。`;
+
+const messages=document.getElementById("messages");
+const form=document.getElementById("chatForm");
+const input=document.getElementById("questionInput");
+const sendBtn=document.getElementById("sendBtn");
+const typing=document.getElementById("typing");
+const quickBtns=document.querySelectorAll(".quick-btn");
+
+let isProcessing=false;
+
+function escapeHTML(str){
+return str.replace(/[<>&"']/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function setControlsDisabled(disabled){
+isProcessing=disabled;
+input.disabled=disabled;
+sendBtn.disabled=disabled;
+quickBtns.forEach(btn=>btn.disabled=disabled);
+}
+
+function addMessage(text,role){
+const msg=document.createElement("div");
+msg.className=`message ${role}`;
+const icon=document.createElement("div");
+icon.className=role==="bot"?"mini-avatar":"student-icon";
+icon.setAttribute("aria-hidden","true");
+if(role==="student")icon.textContent="👧";
+const bubble=document.createElement("div");
+bubble.className="bubble";
+bubble.innerHTML=text;
+msg.appendChild(icon);
+msg.appendChild(bubble);
+messages.appendChild(msg);
+messages.scrollTop=messages.scrollHeight;
+}
+
+function getReply(question){
+const normalized=question.trim().toLowerCase();
+if(!normalized)return fallback;
+const matches=[];
+keywordRules.forEach((rule,index)=>{
+let score=0;
+rule.keys.forEach(key=>{
+if(normalized.includes(key.toLowerCase()))score++;
+});
+if(score>0)matches.push({score,index,answer:rule.answer});
+});
+if(matches.length===0)return fallback;
+matches.sort((a,b)=>b.score-a.score||a.index-b.index);
+return matches[0].answer;
+}
+
+function botReply(question){
+setControlsDisabled(true);
+typing.classList.add("show");
+messages.scrollTop=messages.scrollHeight;
+setTimeout(()=>{
+typing.classList.remove("show");
+addMessage(getReply(question),"bot");
+setControlsDisabled(false);
+input.focus();
+},520);
+}
+
+function submitQuestion(question){
+if(isProcessing)return;
+const clean=question.trim();
+if(!clean)return;
+addMessage(escapeHTML(clean),"student");
+input.value="";
+botReply(clean);
+}
+
+form.addEventListener("submit",e=>{
+e.preventDefault();
+submitQuestion(input.value);
+});
+
+quickBtns.forEach(btn=>{
+btn.addEventListener("click",()=>{
+submitQuestion(btn.dataset.question);
+});
+});
+</script>
+</body>
+</html>
