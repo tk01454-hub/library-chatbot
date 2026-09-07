@@ -143,13 +143,14 @@ h1{font-size:32px;line-height:1.18;margin:20px 0 10px;color:var(--green-dark);le
 <button class="quick-btn" data-question="如何借書">如何借書</button>
 <button class="quick-btn" data-question="找書方法">找書方法</button>
 <button class="quick-btn" data-question="圖書館活動">圖書館活動</button>
+<button class="quick-btn" data-question="教師專區">教師專區</button>
 <button class="quick-btn" data-question="相關網頁">相關網頁</button>
 </div>
 </div>
 <div class="messages" id="messages" aria-live="polite">
 <div class="message bot">
 <div class="mini-avatar" aria-hidden="true"></div>
-<div class="bubble">哈囉！這裡是大園國小圖書館閱讀小幫手「書寶」。可查詢借閱規則、開放時間、借書方式、找書方法和圖書館活動。</div>
+<div class="bubble">哈囉！這裡是大園國小圖書館閱讀小幫手「書寶」。可查詢借閱規則、開放時間、借書方式、找書方法、圖書館活動與教師專區。</div>
 </div>
 </div>
 <div class="typing" id="typing">
@@ -199,6 +200,12 @@ activity:`<span class="tag">圖書館活動</span>
 <li>活動時間與參加方式以學校圖書館公告為準。</li>
 <li>可留意圖書館公布欄、班級通知或學校相關公告。</li>
 </ul>`,
+teacher:`<span class="tag">教師專區</span><br><br>
+<strong>1. 各班圖書館閱讀教育時間表：</strong><br>
+<a href="https://docs.google.com/spreadsheets/d/1tqGqzRehILPpMksnuYq9Wq3-TPzZYAmMKm5GJ8mckbQ/edit?gid=0#gid=0" target="_blank" class="link-btn">📅 各班閱讀教育時間表</a><br><br>
+<strong>2. 班級共讀書箱換書時間：</strong><br>
+<a href="https://docs.google.com/spreadsheets/d/1BtiLU2DkT8xaKx4OFqXd4DpupWlyV7-o/edit?usp=drive_link&ouid=115333724899167584851&rtpof=true&sd=true" target="_blank" class="link-btn">📦 115上 班級共讀書箱換書時間</a>
+<a href="https://docs.google.com/spreadsheets/d/1JFAiZ9WkOg8WIuF9Tw6y_YgYzT958K-G/edit?usp=drive_link&ouid=115333724899167584851&rtpof=true&sd=true" target="_blank" class="link-btn">📦 115下 班級共讀書箱換書時間</a>`,
 links:`<span class="tag">相關網頁連結</span><br><br>
 <a href="https://read.moe.edu.tw/034624/library" target="_blank" class="link-btn">📖 大園國小圖書館查書</a>
 <a href="https://read.tc.edu.tw/index_2020.php" target="_blank" class="link-btn">✅ 臺中市閱讀認證系統</a>
@@ -206,7 +213,7 @@ links:`<span class="tag">相關網頁連結</span><br><br>
 <a href="https://sites.google.com/dyps.tyc.edu.tw/dayuanlibrary/%E9%96%B1%E8%AE%80%E7%8D%8E%E5%8B%B5%E8%BE%A6%E6%B3%95" target="_blank" class="link-btn">🏆 閱讀獎勵辦法</a>
 <a href="https://sites.google.com/dyps.tyc.edu.tw/dayuanlibrary/%E9%A6%96%E9%A0%81" target="_blank" class="link-btn">🌟 大園國小悅讀樂園</a>`,
 thanks:`不客氣！書寶祝福閱讀時光充滿驚喜。`,
-greeting:`哈囉！書寶可以協助查詢借閱規則、開放時間、如何借書、找書方法和圖書館活動。`,
+greeting:`哈囉！書寶可以協助查詢借閱規則、開放時間、如何借書、找書方法、圖書館活動和教師專區。`,
 overdue:`<span class="tag">逾期提醒</span>
 書籍超過期限未歸還，將暫停借書權利。完成歸還後，再依圖書館規定恢復借閱。`
 };
@@ -216,12 +223,13 @@ const keywordRules=[
 {keys:["如何借書","怎麼借","借書方法","借書流程","辦理借書","櫃台","借還書"],answer:answers.how},
 {keys:["找書方法","怎麼找書","找不到","在哪裡","書架","分類","書名","作者","主題","關鍵字","查書"],answer:answers.find},
 {keys:["活動","書展","閱讀活動","公告","好書推薦","閱讀任務","主題書展"],answer:answers.activity},
+{keys:["教師專區","教師","老師","時間表","換書","共讀書箱","書箱","班級共讀","115上","115下","閱讀教育時間表"],answer:answers.teacher},
 {keys:["相關網頁","網頁","連結","查書","認證","明日家庭","獎勵","悅讀樂園","網站"],answer:answers.links},
 {keys:["逾期","過期","忘記還","沒還","暫停"],answer:answers.overdue},
 {keys:["你好","哈囉","嗨","早安","午安","晚安"],answer:answers.greeting},
 {keys:["謝謝","感謝","多謝"],answer:answers.thanks}
 ];
-const fallback=`書寶目前可回答大園國小圖書館的借閱規則、開放時間、如何借書、找書方法與圖書館活動。可輸入相關關鍵字，或點選上方快速問答按鈕。`;
+const fallback=`書寶目前可回答大園國小圖書館的借閱規則、開放時間、如何借書、找書方法、圖書館活動與教師專區。可輸入相關關鍵字，或點選上方快速問答按鈕。`;
 
 const messages=document.getElementById("messages");
 const form=document.getElementById("chatForm");
